@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twinkle Twinkle Little Star</title>
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Background image-->
+    <div class="background"></div>
+
+    <div class="Content">
+        <!-- Banner -->
+        <div class="banner">
+            <div class="banner-overlay"></div>
+            <img src="logo1.png" alt="Rhyme Time Logo" class="banner-logo">
+            <p>Twinkle Twinkle Little Star</p>
+            <img src="happykids.png" alt="Kids holding hands" class="image">
+        </div>
+
+        <!-- Tree Branch Navigation -->
+        <nav class="tree-branch-nav">
+            <div class="branch">
+                <div class="nav-section">
+                    <a href="home.html" class="nav-leaf">
+                        <i class="fas fa-house"></i>
+                    </a>
+                    <a href="twinkle.html" class="nav-leaf active">
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <a href="jack and jill.html" class="nav-leaf">
+                        <i class="fas fa-mountain"></i>
+                    </a>
+                    <a href="#" class="nav-leaf">
+                        <i class="fas fa-fish"></i>
+                    </a>
+                    <a href="#" class="nav-leaf">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="#" class="nav-leaf">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sign Board -->
+        <div class="sign-board-container">
+            <div class="sign-board">
+                Welcome to Twinkle Twinkle Little Star
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <div class="twinkle-main">
+                <div class="content-wrapper">
+                    <div class="audio-controls">
+                        <button id="playButton" class="control-button">
+                            <i class="fas fa-play"></i>
+                            Play
+                        </button>
+                        <button id="pauseButton" class="control-button">
+                            <i class="fas fa-pause"></i>
+                            Pause
+                        </button>
+                        <audio id="audio" src="twinkletwinkle.mp3"></audio>
+                    </div>
+                    <div class="lyrics-container">
+                        <div class="lyrics" id="lyrics">
+                            <!-- Lyrics will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-overlay"></div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Rhyme Time</h3>
+                    <p>Where learning meets fun! We provide engaging nursery rhymes and educational content for children.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Rhyme Street</p>
+                        <p>Melody City, MC 12345</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@rhymetime.com</p>
+                    </address>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Rhyme Time. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="twinkle.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>

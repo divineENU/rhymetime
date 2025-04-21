@@ -1,0 +1,1068 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: url('backgroundfortiles.png') no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.Content {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== WELCOME PAGE STYLES ===== */
+body.welcome-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('background.jpg') no-repeat center center/cover;
+}
+
+.welcome-page .container {
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.welcome-page .logo {
+    max-width: 400px;
+    margin-bottom: 50px;
+    display: block;
+}
+
+.welcome-page .large-button {
+    padding: 20px 60px;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.welcome-page .large-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #357abd, #2c6aa3);
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    text-align: center;
+    padding: 1rem 0;
+    background-image: url('newbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+    margin-bottom: -11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.banner p {
+    font-size: 1.3rem;
+    font-family: 'Chewy', cursive;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0;
+    color: #ffe600;
+    position: relative;
+    z-index: 4;
+    animation: bounceIn 1s ease-in-out, floaty 3s ease-in infinite;
+    animation-delay: 0s, 1s;
+    animation-fill-mode: forwards;
+    padding: 2px 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.image {
+    width: 30%;
+    max-height: 30vh;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.banner-logo {
+    max-width: 150px;
+    height: auto;
+    margin: 10px auto 0;
+    position: relative;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Navigation */
+nav {
+    background: none;
+    width: min(800px, 95vw);
+    padding: 0;
+    position: relative;
+    text-align: center;
+    z-index: 999;
+    margin: 0 auto;
+}
+
+/* Tree Branch Navigation */
+.tree-branch-nav {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    background: url('newtreelog.png') repeat-x center;
+    background-size: 110% 109px;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    background-position: center -20px;
+    background-color: none;
+    margin-bottom: -40px;
+    padding-top: 0;
+    transition: height 0.3s ease-in-out, background-size 0.3s ease-in-out, background-position 0.3s ease-in-out, margin-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tree-branch-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none; /* Remove dark overlay */
+    z-index: 1;
+}
+
+.tree-branch-nav .branch {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.tree-branch-nav .nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.tree-branch-nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 109px;
+    z-index: 1000;
+    box-shadow: none;
+    background: url('newtreelog.png') repeat-x center !important;
+    background-size: 250% 109px !important;
+    background-position: center -13px !important;
+    margin-bottom: -40px;
+    margin-top: -2px;
+}
+
+.tree-branch-nav.sticky .nav-leaf {
+    padding: 8px 15px;
+    font-size: 1.3rem;
+}
+
+.tree-branch-nav.sticky .nav-leaf span {
+    font-size: 1.62rem;
+    margin-top: -25px;
+}
+
+.tree-branch-nav.sticky .nav-leaf i {
+    width: 25px;
+    height: 25px;
+    font-size: 1.4rem;
+}
+
+.tree-branch-nav .nav-leaf {          /*This is for the banner text*/
+    color: #FFE4B5;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+    font-size: 1.3rem;
+    min-width: 80px;
+    font-family: 'Chewy', cursive;
+    flex: 1;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.tree-branch-nav .nav-leaf span {
+    font-size: 1.62rem;
+    margin-top: -8px;
+    position: relative;
+    color: #FFE4B5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.tree-branch-nav .nav-leaf span::after {                 /*This is for the banner text - Grass Icon*/
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160%;
+    height: 33px;
+    background: url('grassicon.png') no-repeat center;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.tree-branch-nav .nav-leaf:hover span::after {
+    transform: translateX(-50%) scaleY(1.2);
+    opacity: 1;
+}
+
+.tree-branch-nav .nav-leaf:hover,
+.tree-branch-nav .nav-leaf.active {
+    transform: translateY(-2px);
+}
+
+.tree-branch-nav .nav-leaf i {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+}
+
+.tree-branch-nav .nav-leaf:hover i,
+.tree-branch-nav .nav-leaf.active i {
+    transform: scale(1.1);
+    background: #98c46f;
+}
+
+/* Icon colors - Cartoonish theme */
+.tree-branch-nav .nav-leaf i { 
+    background: #8ab661; 
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #000;
+    text-shadow: none;
+    box-shadow: none;
+    filter: none;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+} /* Home - Soft Green */
+.tree-branch-nav .social-icon.facebook i { 
+    color: #4B6BFB; /* Cartoonish Facebook Blue */
+    transform: scale(1.1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+} 
+.tree-branch-nav .social-icon.twitter i { 
+    color: #1DA1F2; /* Twitter Blue */
+    transform: scale(1.1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+} 
+.tree-branch-nav .social-icon.instagram i { 
+    background: linear-gradient(45deg, #FF9A8B 0%, #FF6B6B 25%, #FF4B4B 50%, #FF2B2B 75%, #FF0A0A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+} 
+.tree-branch-nav .social-icon.youtube i { 
+    color: #FF3333; /* Cartoonish YouTube Red */
+    transform: scale(1.1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+} 
+
+.tree-branch-nav .nav-leaf:hover i,
+.tree-branch-nav .nav-leaf.active i {
+    transform: scale(1.1);
+    background: #98c46f;
+}
+
+.tree-branch-nav .social-icon {
+    color: #FFE4B5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.tree-branch-nav .social-icon:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Adjust spacing after nav */
+.nav-tree {
+    margin-top: 20px;
+}
+
+/* Sign Board */
+.sign-board-container {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+    z-index: 3;
+    transform: translateX(0%);
+    max-width: 100vw;
+}
+
+.sign-board {
+    position: relative;
+    width: min(480px, 90vw);
+    height: 108px;
+    background: url('navbartree.jpg') no-repeat center;
+    background-size: 600px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Chewy', cursive;
+    font-size: 1.6rem;
+    color: #4a3000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sign-board:hover {
+    transform: translateY(-3px);
+}
+
+.sign-board i {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1.2em;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Scroll Button */
+.scroll-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Chewy', cursive;
+    color: #4a3000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.scroll-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.scroll-button i {
+    font-size: 1.2em;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Main Content */
+main {
+    width: 100%;
+    margin: -81px 0 0 0;
+    padding: 120px 0 40px 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: calc(100vh + 81px);
+    z-index: 1;
+    background: url('cloudsimage.png') no-repeat center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Chewy', cursive;
+    font-size: 2.5rem;
+}
+
+/* Rhyme Cards */
+.rhymes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.rhyme-card {
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.rhyme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.rhyme-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.rhyme-card:hover img {
+    transform: scale(1.05);
+}
+
+.rhyme-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 15px;
+    color: white;
+    font-family: 'Chewy', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding-bottom: 30px;
+}
+
+/* Coming Soon Card */
+.coming-soon {
+    flex: 0 0 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.coming-soon h3 {
+    color: #4a3000;
+    font-family: 'Chewy', cursive;
+    margin-bottom: 20px;
+}
+
+.coming-soon button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #8ab661;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Chewy', cursive;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coming-soon button:hover {
+    background: #98c46f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.social-icons a {
+    color: white;
+    background: #8ab661;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    position: relative;
+    background-image: url('newbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-family: 'Chewy', cursive;
+    color: #ffe600;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-section p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffe600;
+}
+
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer .social-icons a {
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.footer .social-icons a:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer .social-icons a.facebook:hover {
+    background: #4B6BFB;
+}
+
+.footer .social-icons a.twitter:hover {
+    background: #1DA1F2;
+}
+
+.footer .social-icons a.instagram:hover {
+    background: linear-gradient(45deg, #FF9A8B, #FF6B6B, #FF4B4B);
+}
+
+.footer .social-icons a.youtube:hover {
+    background: #FF3333;
+}
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.footer-section address p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-section address i {
+    color: #ffe600;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+
+/* Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-200px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(30px);
+    }
+    80% {
+        transform: scale(0.95) translateY(-10px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes floaty {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .rhymes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Jack and Jill Page Styles */
+.jack-and-jill-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.jack-and-jill-main .audio-controls {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.jack-and-jill-main .control-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jack-and-jill-main .control-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+}
+
+.jack-and-jill-main .control-button i {
+    font-size: 1.1em;
+}
+
+.jack-and-jill-main .lyrics-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.jack-and-jill-main .lyrics {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    color: #333;
+}
+
+.jack-and-jill-main .lyrics span {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.jack-and-jill-main .lyrics span.highlight {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    transform: scale(1.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Twinkle Page Styles */
+.twinkle-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.twinkle-main .audio-controls {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.twinkle-main .control-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.twinkle-main .control-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #357abd, #2c6aa3);
+}
+
+.twinkle-main .control-button i {
+    font-size: 1.1em;
+}
+
+.twinkle-main .lyrics-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.twinkle-main .lyrics {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    color: #333;
+}
+
+.twinkle-main .lyrics span {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.twinkle-main .lyrics span.highlight {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    transform: scale(1.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Baby Shark Page Styles */
+.babyshark-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.babyshark-main .welcome-text {
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.babyshark-main .audio-controls {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.babyshark-main .control-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.babyshark-main .control-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+}
+
+.babyshark-main .control-button i {
+    font-size: 1.1em;
+}
+
+.babyshark-main .control-button.end-button {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+.babyshark-main .control-button.end-button:hover {
+    background: linear-gradient(135deg, #ff4757, #ff3648);
+}
+
+.babyshark-main .lyrics-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.babyshark-main .lyrics {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    color: #333;
+}
+
+.babyshark-main .lyrics span {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.babyshark-main .lyrics span.highlight {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    transform: scale(1.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* match grass icon size for sticky nav */
+.tree-branch-nav.sticky .nav-leaf span::after {
+    bottom: -5px;
+    width: 160%;
+    height: 33px;
+    background-size: 100% 100%;
+}
+
