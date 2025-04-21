@@ -113,3 +113,13 @@ audio.onended = () => {
         lyricElement.classList.remove("highlight");
     });
 };
+
+// Auto-scroll to rhyme section after a 1-second delay
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const mainSection = document.querySelector('main');
+        if (mainSection) {
+            mainSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 500);
+});
