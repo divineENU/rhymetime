@@ -187,3 +187,114 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }, 500);
 });
+
+// Pail Collector Game Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const gameArea = document.querySelector('.game-area');
+    const bucket = document.getElementById('bucket');
+    const scoreboard = document.getElementById('score');
+    const endMessage = document.getElementById('endMessage');
+    const finalScoreEl = document.getElementById('finalScore');
+
+    const words = ['tail','mail','fail','rail'];
+    const rhymes = ['tail','mail'];
+    const spawnInterval = 1500;   // ms between spawns
+    const gameDuration = 30000;   // total game time in ms
+    const fallSpeed = 2;          // px per frame
+    let score = 0;
+    let spawnTimer, animationId;
+
+    // Center bucket initially and on resize
+    function centerBucket() {
+        const rect = gameArea.getBoundingClientRect();
+        bucket.style.left = (rect.width - bucket.offsetWidth) / 2 + 'px';
+    }
+    centerBucket();
+    window.addEventListener('resize', centerBucket);
+
+    // Smooth bucket drag accounting for initial position
+    let dragging = false;
+    let gameAreaLeft = 0;
+    const bucketHalf = bucket.offsetWidth / 2;
+    let initialLeft = bucket.offsetLeft;
+    bucket.style.willChange = 'transform';
+    bucket.addEventListener('pointerdown', e => {
+        dragging = true;
+        bucket.setPointerCapture(e.pointerId);
+        gameAreaLeft = gameArea.getBoundingClientRect().left;
+        initialLeft = bucket.offsetLeft;
+    });
+    document.addEventListener('pointermove', e => {
+        if (!dragging) return;
+        // Calculate pointer relative to gameArea
+        let pointerX = e.clientX - gameAreaLeft - bucketHalf;
+        // Clamp within bounds
+        const maxX = gameArea.clientWidth - bucket.offsetWidth;
+        let x = Math.max(0, Math.min(pointerX, maxX));
+        // Translate relative to initial left
+        bucket.style.transform = `translateX(${x - initialLeft}px)`;
+    });
+    bucket.addEventListener('pointerup', e => {
+        dragging = false;
+        bucket.releasePointerCapture(e.pointerId);
+    });
+
+    // Spawn a new falling word
+    function spawnWord() {
+        const word = words[Math.floor(Math.random() * words.length)];
+        const el = document.createElement('div');
+        el.className = 'falling-word';
+        el.textContent = word;
+        gameArea.appendChild(el);
+        el.style.top = '-40px';
+        const maxX = gameArea.clientWidth - el.offsetWidth;
+        el.style.left = Math.random() * maxX + 'px';
+    }
+
+    // Main animation loop: move words and detect collisions
+    function update() {
+        document.querySelectorAll('.falling-word').forEach(el => {
+            let top = parseFloat(el.style.top) + fallSpeed;
+            el.style.top = top + 'px';
+            const bRect = bucket.getBoundingClientRect();
+            const wRect = el.getBoundingClientRect();
+            // Check catch
+            if (wRect.bottom >= bRect.top &&
+                wRect.left < bRect.right &&
+                wRect.right > bRect.left) {
+                if (rhymes.includes(el.textContent)) {
+                    score++;
+                    scoreboard.textContent = score;
+                }
+                el.remove();
+            } else if (top > gameArea.clientHeight) {
+                el.remove();
+            }
+        });
+        animationId = requestAnimationFrame(update);
+    }
+
+    // Start the game
+    function startGame() {
+        score = 0;
+        scoreboard.textContent = score;
+        endMessage.classList.add('hidden');
+        spawnTimer = setInterval(spawnWord, spawnInterval);
+        update();
+        setTimeout(() => {
+            clearInterval(spawnTimer);
+            cancelAnimationFrame(animationId);
+            endMessage.classList.remove('hidden');
+            finalScoreEl.textContent = score;
+        }, gameDuration);
+    }
+
+    // Show prompt and start game on bucket click
+    bucket.textContent = 'Click to Start';
+    bucket.style.cursor = 'pointer';
+    bucket.addEventListener('pointerdown', function init(e) {
+        bucket.removeEventListener('pointerdown', init);
+        bucket.textContent = '';
+        startGame();
+    });
+});
