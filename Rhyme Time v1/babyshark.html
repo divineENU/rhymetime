@@ -71,14 +71,26 @@
                     </div>
                 </div>
             </div>
-            <!-- Fill the Well Game Section -->
-            <section class="game-section">
-                <h2>Fill the Well with Water Droplets!</h2>
-                <div id="well"></div>
-                <button id="add-droplet">Add Water Droplet</button>
-                <p>Droplets added: <span id="count">0</span>/10</p>
-                <div id="message"></div>
-            </section>
+            <!-- Rhyme to Fill the Well Game -->
+            <h1>🧠 Rhyme to Fill the Well</h1>
+            <p>Drag the rhyming words into the drop zone below the target word to fill the well!</p>
+
+            <h2 class="target-word">Target Word: <span id="targetWord"></span></h2>
+
+            <div id="optionsContainer" class="options"></div>
+
+            <div id="dropZone" class="drop-zone">
+                <p>Drop rhyming words here</p>
+            </div>
+
+            <button onclick="checkAnswers()">Check Answers</button>
+            <p id="feedback"></p>
+
+            <div id="wellSection">
+                <div id="well" class="well"></div>
+                <p>Drops: <span id="count">0</span> / <span id="total">?</span></p>
+                <p id="message"></p>
+            </div>
         </main>
 
         <!-- Footer -->
@@ -116,6 +128,7 @@
 
     <script src="babyshark.js"></script>
     <script src="home.js"></script>
+    <script src="script.js"></script>
     <script src="fillthewell.js"></script>
 </body>
 </html>
