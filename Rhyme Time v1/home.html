@@ -30,12 +30,21 @@
                     <a href="home.html" class="nav-leaf active">
                         <span>Home</span>
                     </a>
-                    <a href="#" class="nav-leaf">
+                    <div class="nav-leaf dropdown">
                         <span>Rhymes</span>
-                    </a>
-                    <a href="matchgame.html" class="nav-leaf">
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html#twinkle" class="nav-sub">Twinkle Twinkle Little Star</a>
+                            <a href="jack and jill.html#jackandjill" class="nav-sub">Jack and Jill</a>
+                            <a href="babyshark.html#babyshark" class="nav-sub">Baby Shark</a>
+                        </div>
+                    </div>
+                    <div class="nav-leaf dropdown">
                         <span>Mini Games</span>
-                    </a>
+                        <div class="dropdown-menu">
+                            <a href="jack and jill.html#pailcollector" class="nav-sub">Pail Collector</a>
+                            <a href="babyshark.html#sharkbuilder" class="nav-sub">Shark Builder</a>
+                        </div>
+                    </div>
                     <a href="aboutus.html" class="nav-leaf">
                         <span>About Us</span>
                     </a>
@@ -46,7 +55,7 @@
         <!-- Sign Board -->
         <div class="sign-board-container">
             <div class="sign-board" id="scrollButton">
-                Welcome to Rhyme Time!
+                <span class="sign-board-text">Welcome to Rhyme Time!</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
         </div>

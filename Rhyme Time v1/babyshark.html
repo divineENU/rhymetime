@@ -26,18 +26,21 @@
         <nav class="tree-branch-nav">
             <div class="branch">
                 <div class="nav-section">
-                    <a href="home.html" class="nav-leaf">
-                        <span>Home</span>
-                    </a>
-                    <a href="#" class="nav-leaf active">
-                        <span>Rhymes</span>
-                    </a>
-                    <a href="#" class="nav-leaf">
-                        <span>Mini Games</span>
-                    </a>
-                    <a href="#" class="nav-leaf">
-                        <span>About Us</span>
-                    </a>
+                    <a href="home.html" class="nav-leaf"><span>Home</span></a>
+                    <div class="nav-leaf dropdown active"><span>Rhymes</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html#twinkle" class="nav-sub">Twinkle Twinkle Little Star</a>
+                            <a href="jack and jill.html#jackandjill" class="nav-sub">Jack and Jill</a>
+                            <a href="babyshark.html#babyshark" class="nav-sub">Baby Shark</a>
+                        </div>
+                    </div>
+                    <div class="nav-leaf dropdown"><span>Mini Games</span>
+                        <div class="dropdown-menu">
+                            <a href="jack and jill.html#pailcollector" class="nav-sub">Pail Collector</a>
+                            <a href="babyshark.html#sharkbuilder" class="nav-sub">Shark Builder</a>
+                        </div>
+                    </div>
+                    <a href="aboutus.html" class="nav-leaf"><span>About Us</span></a>
                 </div>
             </div>
         </nav>
@@ -50,7 +53,7 @@
         </div>
 
         <!-- Main Content -->
-        <main>
+        <main id="babyshark">
             <div class="babyshark-main">
                 <div class="content-wrapper">
                     <div class="audio-controls">
@@ -71,25 +74,63 @@
                     </div>
                 </div>
             </div>
-            <!-- Rhyme to Fill the Well Game -->
-            <h1>🧠 Rhyme to Fill the Well</h1>
-            <p>Drag the rhyming words into the drop zone below the target word to fill the well!</p>
-
-            <h2 class="target-word">Target Word: <span id="targetWord"></span></h2>
-
-            <div id="optionsContainer" class="options"></div>
-
-            <div id="dropZone" class="drop-zone">
-                <p>Drop rhyming words here</p>
+            <!-- Anchor for Shark Builder -->
+            <a id="sharkbuilder"></a>
+            <div id="dragdrop-game">
+                <h3>Build the word: SHARK</h3>
+                <div id="drop-zone">
+                    <div class="drop" data-letter="S"></div>
+                    <div class="drop" data-letter="H"></div>
+                    <div class="drop" data-letter="A"></div>
+                    <div class="drop" data-letter="R"></div>
+                    <div class="drop" data-letter="K"></div>
+                </div>
+                <div id="tiles">
+                    <div class="tile" draggable="true">A</div>
+                    <div class="tile" draggable="true">H</div>
+                    <div class="tile" draggable="true">K</div>
+                    <div class="tile" draggable="true">R</div>
+                    <div class="tile" draggable="true">S</div>
+                </div>
+                <div id="dragdrop-result"></div>
             </div>
-
-            <button onclick="checkAnswers()">Check Answers</button>
-            <p id="feedback"></p>
-
-            <div id="wellSection">
-                <div id="well" class="well"></div>
-                <p>Drops: <span id="count">0</span> / <span id="total">?</span></p>
-                <p id="message"></p>
+            <style>
+                /* Center the shark drag-and-drop game container */
+                #dragdrop-game {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin: 2rem auto;
+                }
+                #drop-zone { display: flex; gap: 8px; margin-bottom: 10px; }
+                .drop { width: 40px; height: 40px; border: 2px dashed #888; display: flex; align-items: center; justify-content: center; font-size: 1.5em; }
+                #tiles { display: flex; gap: 8px; }
+                .tile { background: #d21988; color: #fff; padding: 8px 16px; border-radius: 6px; cursor: grab; user-select: none; }
+            </style>
+            <script>
+                const drops = document.querySelectorAll('.drop');
+                const tiles = document.querySelectorAll('.tile');
+                let filled = 0;
+                tiles.forEach(tile => {
+                    tile.addEventListener('dragstart', e => e.dataTransfer.setData('text', tile.textContent));
+                });
+                drops.forEach(drop => {
+                    drop.addEventListener('dragover', e => e.preventDefault());
+                    drop.addEventListener('drop', function(e) {
+                        const letter = e.dataTransfer.getData('text');
+                        if (letter === drop.dataset.letter && !drop.textContent) {
+                            drop.textContent = letter;
+                            filled++;
+                            if (filled === drops.length) {
+                                document.getElementById('dragdrop-result').textContent = "Well done!";
+                            }
+                        }
+                    });
+                });
+            </script>
+            <!-- Back to Home Button -->
+            <div style="margin-top: 2rem; text-align: center;">
+                <button onclick="window.location.href='home.html'" style="padding: 12px 30px; font-size: 1rem; border:none; border-radius:8px; background:#8ab661; color:white; cursor:pointer;">← Back to Home</button>
             </div>
         </main>
 
@@ -129,7 +170,6 @@
     <script src="babyshark.js"></script>
     <script src="home.js"></script>
     <script src="script.js"></script>
-    <script src="fillthewell.js"></script>
 </body>
 </html>
  

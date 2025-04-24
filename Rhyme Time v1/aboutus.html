@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Background image -->
     <div class="background"></div>
+
     <div class="Content">
         <!-- Banner -->
         <div class="banner">
@@ -20,22 +22,25 @@
             <img src="happykids.png" alt="Kids holding hands" class="image">
         </div>
 
-        <!-- Navigation -->
+        <!-- Tree Branch Navigation -->
         <nav class="tree-branch-nav">
             <div class="branch">
                 <div class="nav-section">
-                    <a href="home.html" class="nav-leaf">
-                        <span>Home</span>
-                    </a>
-                    <a href="#" class="nav-leaf">
-                        <span>Rhymes</span>
-                    </a>
-                    <a href="#" class="nav-leaf">
-                        <span>Mini Games</span>
-                    </a>
-                    <a href="aboutus.html" class="nav-leaf active">
-                        <span>About Us</span>
-                    </a>
+                    <a href="home.html" class="nav-leaf"><span>Home</span></a>
+                    <div class="nav-leaf dropdown"><span>Rhymes</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html#twinkle" class="nav-sub">Twinkle Twinkle Little Star</a>
+                            <a href="jack and jill.html#jackandjill" class="nav-sub">Jack and Jill</a>
+                            <a href="babyshark.html#babyshark" class="nav-sub">Baby Shark</a>
+                        </div>
+                    </div>
+                    <div class="nav-leaf dropdown"><span>Mini Games</span>
+                        <div class="dropdown-menu">
+                            <a href="jack and jill.html#pailcollector" class="nav-sub">Pail Collector</a>
+                            <a href="babyshark.html#sharkbuilder" class="nav-sub">Shark Builder</a>
+                        </div>
+                    </div>
+                    <a href="aboutus.html" class="nav-leaf active"><span>About Us</span></a>
                 </div>
             </div>
         </nav>
@@ -43,13 +48,13 @@
         <!-- Sign Board -->
         <div class="sign-board-container">
             <div class="sign-board" id="scrollButton">
-                Learn More About Our Team
+                <span class="sign-board-text">Learn More About Our Team</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
         </div>
 
         <!-- Main Content -->
-        <main>
+        <main class="about-main">
             <h1>About Us</h1>
             <section class="about-team">
                 <h2>Meet the Team</h2>
@@ -57,7 +62,7 @@
                     <div class="team-member">
                         <img src="elisa.jpg" alt="Elisa" class="team-photo">
                         <h3>Elisa</h3>
-                        <p>Content & HTML Lead (Baby Shark)</p>
+                        <p>Content & Mini Games Lead</p>
                     </div>
                     <div class="team-member">
                         <img src="divine.jpg" alt="Divine" class="team-photo">
@@ -67,67 +72,47 @@
                     <div class="team-member">
                         <img src="conor.jpg" alt="Conor" class="team-photo">
                         <h3>Conor</h3>
-                        <p>JavaScript & Mini Games (Twinkle Twinkle Little Star)</p>
+                        <p>JavaScript & HTML Lead</p>
                     </div>
                 </div>
             </section>
-
-            <section class="about-project">
-                <h2>Our Project: Rhyme Time</h2>
+            <section class="about-us">
+                <h2>About Us</h2>
                 <p>
-                    <strong>Rhyme Time</strong> is a collaborative website designed to help children aged 3–6 learn classic nursery rhymes in a fun, interactive, and accessible way. Our site combines karaoke-style lyrics, instrumental audio, and educational mini games to promote literacy and cognitive development.
+                    Rhyme Time is a collaborative project created by Elisa, Divine, and Conor, designed to make learning nursery rhymes fun and interactive for children aged 3 to 6. Our goal is to support early literacy and cognitive development by combining karaoke-style lyrics, educational mini-games, and personalization features. Inspired by leading educational platforms, we believe learning should be enjoyable and accessible for every child. Our website is built with accessibility in mind, using clear layouts, large buttons, and engaging activities to ensure all children can join in. We are passionate about creating a safe and inspiring space for young learners to sing, play, and grow together.
                 </p>
-                <h3>Our Goals</h3>
-                <ul>
-                    <li>Make learning nursery rhymes accessible, fun, and engaging for all children.</li>
-                    <li>Support early literacy and cognitive skills through music, repetition, and play.</li>
-                    <li>Personalize the experience with user names and progress tracking.</li>
-                    <li>Ensure accessibility for all users, including those with sensory sensitivities.</li>
-                </ul>
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Karaoke-style lyrics with synchronized instrumentals.</li>
-                    <li>Personalisation: users see their name throughout the site.</li>
-                    <li>Interactive educational games and quizzes for each rhyme.</li>
-                    <li>Progress tracking using localStorage—no login required.</li>
-                    <li>Form submission for suggesting new rhymes.</li>
-                </ul>
-                <h3>How We Work</h3>
-                <ul>
-                    <li>We use <strong>HTML, CSS, and JavaScript</strong> to build interactive, responsive pages.</li>
-                    <li>Each rhyme page features karaoke-style lyrics synchronized with instrumental audio.</li>
-                    <li>Mini games and quizzes reinforce learning and provide instant feedback.</li>
-                    <li>We prioritize accessibility with high-contrast colors, large buttons, and ARIA labels.</li>
-                    <li>Our team collaborates closely, sharing tasks and supporting each other's learning.</li>
-                </ul>
-            </section>
-
-            <section class="about-accessibility">
-                <h2>Accessibility Commitment</h2>
-                <p>
-                    Rhyme Time is designed for all children, including those with sensory sensitivities. We use high-contrast colors, large fonts, and ARIA labels for screen readers. Reduced motion settings are available for users who prefer less animation. Our goal is to meet or exceed WCAG 2.1 standards for inclusivity.
-                </p>
-            </section>
-
-            <section class="about-future">
-                <h2>Looking Ahead</h2>
-                <ul>
-                    <li>Adding more rhymes and mini games.</li>
-                    <li>Printable lyric sheets and certificates.</li>
-                    <li>Customizable avatars and enhanced reward systems.</li>
-                    <li>Potential for group participation features in the future.</li>
-                </ul>
             </section>
         </main>
 
         <!-- Footer -->
         <footer>
-            <p>© 2025 Rhyme Time. All rights reserved.</p>
-            <p>10 Colinton Rd, Edinburgh, EH10 5DT</p>
-            <div class="footer-links">
-                <a href="home.html">Home</a>
-                <a href="aboutus.html">About Us</a>
-                <a href="#contact">Contact</a>
+            <div class="footer-overlay"></div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Rhyme Time</h3>
+                    <p>Where learning meets fun! We provide engaging nursery rhymes and educational content for children.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Rhyme Street</p>
+                        <p>Melody City, MC 12345</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@rhymetime.com</p>
+                    </address>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Rhyme Time. All rights reserved.</p>
             </div>
         </footer>
     </div>

@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: auto;
-    background: url('backgroundfortiles.png') no-repeat center top;
+    background: url('treebackground.png') no-repeat center top;
     background-size: cover;
     z-index: -1;
 }
@@ -394,10 +394,10 @@ nav {
 
 .sign-board {
     position: relative;
-    width: min(480px, 90vw);
-    height: 108px;
-    background: url('navbartree.jpg') no-repeat center;
-    background-size: 600px auto;
+    width: min(500px, 80vw);
+    height: 130px;
+    background: url('adobetree.png') no-repeat center;
+    background-size: 98.4% 126px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -419,6 +419,13 @@ nav {
     font-size: 1.2em;
     animation: bounce 2s infinite;
 }
+
+/*Sign Board Text alignment*/
+.sign-board-text {
+    position: relative;
+    top: 10%;
+    left: -4%;
+  }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
@@ -485,7 +492,7 @@ main {
     position: relative;
     min-height: calc(100vh + 81px);
     z-index: 1;
-    background: url('cloudsimage.png') no-repeat center top;
+    background: url('treebackground.png') no-repeat center top;
     background-size: 100% auto;
     background-repeat: repeat-y;
 }
@@ -1407,4 +1414,38 @@ body {
     bottom: 0;
   }
 }
+
+.tree-branch-nav .nav-section .dropdown {
+  position: relative;
+}
+.tree-branch-nav .nav-section .dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d2b48c;  /* light brown */
+  border: 2px solid #8ab661;
+  border-radius: 12px;
+  padding: 5px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+.tree-branch-nav .nav-section .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.tree-branch-nav .dropdown-menu .nav-sub {
+  display: block;
+  padding: 10px 20px;
+  font-family: 'Chewy', cursive;
+  font-size: 1.2rem;
+  color: #4a3000;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.tree-branch-nav .dropdown-menu .nav-sub:hover {
+  background: #8ab661;
+  color: #fff;
+}
+
   

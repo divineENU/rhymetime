@@ -178,16 +178,6 @@ audio.onended = () => {
     });
 };
 
-// Auto-scroll to rhyme section after a 1-second delay
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const mainSection = document.querySelector('main');
-        if (mainSection) {
-            mainSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 500);
-});
-
 // Pail Collector Game Logic
 document.addEventListener('DOMContentLoaded', () => {
     const gameArea = document.querySelector('.game-area');
