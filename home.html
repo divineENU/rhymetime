@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhyme Time - Home</title>
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Background image-->
+    <div class="background"></div>
+
+    <div class="Content">
+        <!-- Banner -->
+        <div class="banner">
+            <div class="banner-overlay"></div>
+            <img src="logo1.png" alt="Rhyme Time Logo" class="banner-logo">
+            <p>Rhyme Time</p>
+            <img src="happykids.png" alt="Kids holding hands" class="image">
+        </div>
+
+        <!-- Tree Branch Navigation -->
+        <nav class="tree-branch-nav">
+            <div class="branch">
+                <div class="nav-section">
+                    <a href="home.html" class="nav-leaf"><span>Home</span></a>
+                    <div class="nav-leaf dropdown active"><span>Rhymes</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html" class="nav-sub">Twinkle Twinkle Little Star</a>
+                            <a href="jack and jill.html" class="nav-sub">Jack and Jill</a>
+                            <a href="babyshark.html" class="nav-sub">Baby Shark</a>
+                        </div>
+                    </div>
+                    <div class="nav-leaf dropdown"><span>Mini Games</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html#starmatch" class="nav-sub">Star Matcher</a>
+                            <a href="jack and jill.html#pailcollector" class="nav-sub">Pail Collector</a>
+                            <a href="babyshark.html#sharkbuilder" class="nav-sub">Shark Builder</a>
+                        </div>
+                    </div>
+                    <a href="aboutus.html" class="nav-leaf"><span>About Us</span></a>
+                    <a href="contact.html" class="nav-leaf"><span>Contact</span></a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sign Board -->
+        <div class="sign-board-container">
+            <div class="sign-board" id="scrollButton">
+                <span class="sign-board-text" style="font-size: 18px;">Hi&nbsp;<span id="usernameWelcome"></span>, Welcome to Rhyme Time!</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <h2>Popular Nursery Rhymes</h2>
+            <br></br>
+            <h2><span id="usernameHeading"></span>, choose the rhyme you want to learn by clicking on its cover.</h2>
+    
+            <!-- Section 1: Image Left, Text Right -->
+            <div class="section section-left">
+                <a href="twinkle.html"><img src="twinklle.png" alt="Twinkle Twinkle Little Star"></a>
+                <div>
+                    <h3 class="rhyme-heading">Twinkle Twinkle Little Star</h3>
+                    <p style="color: #ffffff;">A sparkling twist on a timeless tune, Twinkle Twinkle Litter Star whisks little listeners 
+                        into a world of wonder and whimsy. With giggles in the lyrics and stardust in the sky, 
+                        this playful rhyme dances through the night, leaving trails of laughter and light. It’s a 
+                        cheerful, sing-along adventure that adds a sprinkle of fun to bedtime and beyond.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Section 2: Image Right, Text Left -->
+            <div class="section section-right">
+                <a href="jack and jill.html"><img src="jack and jill.png" alt="Jack and Jill"></a>
+                <div>
+                    <h3 class="rhyme-heading" style="color: #000000;">Jack and Jill</h3>
+                    <p style="color: #000000;">A tumble into timelessness, Jack and Jill rolls in with rhythm, rhyme, and a dash of
+                         delightful drama. As the pail-toting pair climb their hilltop quest, little learners 
+                         are swept into a playful journey full of bounces, bumps, and curious twists. With every 
+                         giggle and spill, this classic nursery rhyme brings joy to the journey and charm to every 
+                         climb. It's a lively sing-along full of fun, friendship, and a sprinkle of silliness!
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Section 3: Image Left, Text Right -->
+            <div class="section section-left">
+                <a href="babyshark.html"><img src="babyshark.png" alt="Baby Shark"></a>
+                <div>
+                    <h3 class="rhyme-heading">Baby Shark</h3>
+                    <p style="color: #ffffff;">A fin-tastic splash into song, Baby Shark dives deep into a bubbly world of rhythm, movement, 
+                        and ocean-sized fun! With a catchy chorus and a whole family of friendly fins, this 
+                        playful tune gets toes tapping and jaws snapping. From baby to grandma, each verse is a 
+                        wave of giggles, making it a sing-along sensation that's sure to make a splash at playtime and beyond!
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+        <footer>
+        <div class="footer-links">
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>© 2025 Rhyme Time. All rights reserved.</p>
+        <p>10 Colinton Rd, Edinburgh, EH10 5DT</p>
+        </footer>
+    
+    <script src="home.js"></script>
+
+    <script>
+        // Get the username from localStorage
+        const userName = localStorage.getItem("userName") || "Guest";
+
+        const welcome = document.getElementById("usernameWelcome");
+        const heading = document.getElementById("usernameHeading");
+
+        if (welcome) welcome.textContent = userName;
+        if (heading) heading.textContent = userName;
+    </script>
+
+</body>
+</html>
