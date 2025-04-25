@@ -1,0 +1,72 @@
+/* Twinkle Page Styles */
+.twinkle-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.twinkle-main .audio-controls {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.twinkle-main .control-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.twinkle-main .control-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #357abd, #2c6aa3);
+}
+
+.twinkle-main .control-button i {
+    font-size: 1.1em;
+}
+
+.twinkle-main .lyrics-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.twinkle-main .lyrics {
+    font-size: 2rem;
+    line-height: 1.8;
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    color: #ff7b00;
+}
+
+.twinkle-main .lyrics span {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.twinkle-main .lyrics span.highlight {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    transform: scale(1.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}

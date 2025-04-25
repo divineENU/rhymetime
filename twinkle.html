@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twinkle Twinkle</title>
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="twinkle.css">
+    <link rel="stylesheet" href="games.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Background image-->
+    <div class="background"></div>
+
+    <div class="Content">
+        <!-- Banner -->
+        <div class="banner">
+            <div class="banner-overlay"></div>
+            <img src="logo1.png" alt="Rhyme Time Logo" class="banner-logo">
+            <p>Twinkle Twinkle</p>
+            <img src="happykids.png" alt="Kids holding hands" class="image">
+        </div>
+
+        <!-- Tree Branch Navigation -->
+        <nav class="tree-branch-nav">
+            <div class="branch">
+                <div class="nav-section">
+                    <a href="home.html" class="nav-leaf"><span>Home</span></a>
+                    <div class="nav-leaf dropdown active"><span>Rhymes</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html" class="nav-sub">Twinkle Twinkle Little Star</a>
+                            <a href="jack and jill.html" class="nav-sub">Jack and Jill</a>
+                            <a href="babyshark.html" class="nav-sub">Baby Shark</a>
+                        </div>
+                    </div>
+                    <div class="nav-leaf dropdown"><span>Mini Games</span>
+                        <div class="dropdown-menu">
+                            <a href="twinkle.html#starmatch" class="nav-sub">Star Matcher</a>
+                            <a href="jack and jill.html#pailcollector" class="nav-sub">Pail Collector</a>
+                            <a href="babyshark.html#sharkbuilder" class="nav-sub">Shark Builder</a>
+                        </div>
+                    </div>
+                    <a href="aboutus.html" class="nav-leaf"><span>About Us</span></a>
+                    <a href="contact.html" class="nav-leaf"><span>Contact</span></a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sign Board -->
+        <div class="sign-board-container"  id="twinkle">
+            <div class="sign-board">
+                <span class="sign-board-text" style="font-size: 18px;"><span id="usernamePlaceholder"></span>, lets learn Twinkle Twinkle</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <div class="twinkle-main">
+                <div class="content-wrapper">
+                    <div class="audio-controls">
+                        <button id="playButton" class="control-button">
+                            <i class="fas fa-play"></i>
+                            Play
+                        </button>
+                        <button id="pauseButton" class="control-button">
+                            <i class="fas fa-pause"></i>
+                            Pause
+                        </button>
+                        <audio id="audio" src="twinkletwinkle.mp3"></audio>
+                    </div>
+                    <div class="lyrics-container">
+                        <div class="lyrics" id="lyrics">
+                            <!-- Lyrics will appear here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Star Matching Game -->
+                        <br></br>
+                        <h2 class="game-title">Star Matching</h2>
+                        <p class="instructions">Can you match the stars to the correct colour?</p>
+                        <div class="game-area" id="starmatch">
+                            <div class="star-targets">
+                          <div class="star-target" data-color="red">☆</div>
+                          <div class="star-target" data-color="blue">☆</div>
+                          <div class="star-target" data-color="green">☆</div>
+                        </div>
+                      
+                        <div class="star-tiles">
+                          <div class="star-tile red" draggable="true" data-color="red">★</div>
+                          <div class="star-tile blue" draggable="true" data-color="blue">★</div>
+                          <div class="star-tile green" draggable="true" data-color="green">★</div>
+                        </div>
+                      
+                        <div id="result"></div>
+                        <button id="resetBtn">Reset Game</button>
+                      </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>© 2025 Rhyme Time. All rights reserved.</p>
+        <p>10 Colinton Rd, Edinburgh, EH10 5DT</p>
+    </footer>
+    </div>
+
+    <script src="twinkle.js"></script>
+    <script src="stars.js"></script>
+    <script src="home.js"></script>
+
+    <script>
+        // Get the username from localStorage
+        const userName = localStorage.getItem("userName");
+      
+        // Insert it into the span, or fallback to "Guest"
+        const placeholder = document.getElementById("usernamePlaceholder");
+        if (userName && placeholder) {
+          placeholder.textContent = userName;
+        } else {
+          placeholder.textContent = "Guest";
+        }
+    </script>
+
+</body>
+</html>

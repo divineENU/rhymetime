@@ -1,0 +1,611 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    background-color: #f0f8ff;
+}
+
+/* Background */
+.background {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: url('treebackground.png') no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+}
+
+.Content {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    text-align: center;
+    padding: 1rem 0;
+    background-image: url('newbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+    margin-bottom: -11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.banner p {
+    font-size: 2rem;
+    font-family: 'Chewy', cursive;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0;
+    color: #ffe600;
+    position: relative;
+    z-index: 4;
+    animation: bounceIn 1s ease-in-out, floaty 3s ease-in infinite;
+    animation-delay: 0s, 1s;
+    animation-fill-mode: forwards;
+    padding: 2px 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.image {
+    width: 30%;
+    max-height: 30vh;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.banner-logo {
+    max-width: 150px;
+    height: auto;
+    margin: 10px auto 0;
+    position: relative;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Navigation */
+nav {
+    background: none;
+    width: min(800px, 95vw);
+    padding: 0;
+    position: relative;
+    text-align: center;
+    z-index: 999;
+    margin: 0 auto;
+}
+
+/* Tree Branch Navigation */
+.tree-branch-nav {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    background: url('newtreelog.png') repeat-x center;
+    background-size: 110% 109px;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    background-position: center -20px;
+    background-color: none;
+    margin-bottom: -40px;
+    padding-top: 0;
+    transition: height 0.3s ease-in-out, background-size 0.3s ease-in-out, background-position 0.3s ease-in-out, margin-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tree-branch-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    z-index: 1;
+}
+
+.tree-branch-nav .branch {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.tree-branch-nav .nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.tree-branch-nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 109px;
+    z-index: 1000;
+    box-shadow: none;
+    background: url('newtreelog.png') repeat-x center !important;
+    background-size: 250% 109px !important;
+    background-position: center -13px !important;
+    margin-bottom: -40px;
+    margin-top: -2px;
+}
+
+.tree-branch-nav.sticky .nav-leaf {
+    padding: 8px 15px;
+    font-size: 1.3rem;
+}
+
+.tree-branch-nav.sticky .nav-leaf span {
+    font-size: 1.4rem;
+    margin-top: -25px;
+}
+
+.tree-branch-nav.sticky .nav-leaf i {
+    width: 25px;
+    height: 25px;
+    font-size: 1.4rem;
+}
+
+.tree-branch-nav .nav-leaf {
+    color: #FFE4B5;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+    font-size: 1.3rem;
+    min-width: 80px;
+    font-family: 'Chewy', cursive;
+    flex: 1;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.tree-branch-nav .nav-leaf span {
+    font-size: 1.46rem;
+    margin-top: -8px;
+    position: relative;
+    color: #FFE4B5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.tree-branch-nav .nav-leaf span::after,
+.tree-branch-nav.sticky .nav-leaf span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160%;
+    height: 33px;
+    background: url('grassicon.png') no-repeat center;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.tree-branch-nav .nav-leaf:hover span::after {
+    transform: translateX(-50%) scaleY(1.2);
+    opacity: 1;
+}
+
+.tree-branch-nav .nav-leaf:hover,
+.tree-branch-nav .nav-leaf.active {
+    transform: translateY(-2px);
+}
+
+.tree-branch-nav .nav-leaf i {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    background: #8ab661;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #000;
+    text-shadow: none;
+    box-shadow: none;
+    filter: none;
+    transform: none;
+    font-size: 14px;
+}
+
+.tree-branch-nav .nav-leaf:hover i,
+.tree-branch-nav .nav-leaf.active i {
+    transform: scale(1.1);
+    background: #98c46f;
+}
+
+/* Adjust spacing after nav */
+.nav-tree {
+    margin-top: 20px;
+}
+
+/* Sign Board */
+.sign-board-container {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+    z-index: 3;
+    transform: translateX(0%);
+    max-width: 100vw;
+}
+
+.sign-board {
+    position: relative;
+    width: min(500px, 80vw);
+    height: 130px;
+    background: url('adobetree.png') no-repeat center;
+    background-size: 98.4% 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Chewy', cursive;
+    font-size: 1.6rem;
+    color: #4a3000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sign-board:hover {
+    transform: translateY(-3px);
+}
+
+.sign-board i {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1.2em;
+    animation: bounce 2s infinite;
+}
+
+/*Sign Board Text alignment*/
+.sign-board-text {
+    position: relative;
+    top: 10%;
+    left: -4%;
+}
+
+/* Scroll Button */
+.scroll-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Chewy', cursive;
+    color: #4a3000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.scroll-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.scroll-button i {
+    font-size: 1.2em;
+    animation: bounce 2s infinite;
+}
+
+/* Main Content */
+main {
+    width: 100%;
+    margin: -81px 0 0 0;
+    padding: 120px 0 40px 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: calc(100vh + 81px);
+    z-index: 1;
+    background: url('treebackground.png') no-repeat center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Chewy', cursive;
+    font-size: 2.5rem;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    background-image: url('newbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-family: 'Chewy', cursive;
+    color: #ffe600;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-section p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffe600;
+}
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.footer-section address p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-section address i {
+    color: #ffe600;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+
+/* Animation Keyframes */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3) translateY(-200px);}
+    60% { opacity: 1; transform: scale(1.05) translateY(30px);}
+    80% { transform: scale(0.95) translateY(-10px);}
+    100% { transform: scale(1) translateY(0);}
+}
+
+@keyframes floaty {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0);}
+    40% { transform: translateY(-10px);}
+    60% { transform: translateY(-5px);}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner h1 { font-size: 2.5rem; }
+    nav { padding: 10px; }
+    nav a { display: block; margin: 5px 0; }
+    .rhymes { grid-template-columns: 1fr; }
+}
+
+/* Drop Zone for Rhymes */
+.drop-zone {
+    min-height: 80px;
+    border: 2px dashed #98c46f;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(152,196,111,0.1);
+    font-family: 'Chewy', cursive;
+    font-size: 1.3rem;
+    color: #4a3000;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: #FFE4B5;
+    background: #8ab661;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: 'Chewy', cursive;
+    transition: background 0.3s;
+}
+
+.footer-links a:hover {
+    background: #98c46f;
+}
+
+/* Dropdown Navigation */
+.tree-branch-nav .nav-section .dropdown {
+    position: relative;
+}
+
+.tree-branch-nav .nav-section .dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d2b48c;
+    border: 2px solid #8ab661;
+    border-radius: 12px;
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.tree-branch-nav .nav-section .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.tree-branch-nav .dropdown-menu .nav-sub {
+    display: block;
+    padding: 10px 20px;
+    font-family: 'Chewy', cursive;
+    font-size: 1.2rem;
+    color: #4a3000;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tree-branch-nav .dropdown-menu .nav-sub:hover {
+    background: #8ab661;
+    color: #fff;
+}
+
+/* Rhyme Heading */
+.rhyme-heading {
+    font-family: 'Chewy', cursive;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
