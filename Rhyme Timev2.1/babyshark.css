@@ -1,9 +1,9 @@
 /* Baby Shark Page Styles */
 .babyshark-main {
-    max-width: 800px;
+    max-width: 700px;
     margin: 2rem auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -16,18 +16,32 @@
     margin-bottom: 2rem;
 }
 
+/* Lyrics Container with Frame */
+.babyshark-main .lyrics-container {
+    position: relative;
+    margin: 0rem auto;
+    padding: 8.4% 6.3%;
+    background: url('rhymeframe.png') no-repeat center center;
+    background-size: contain;
+    aspect-ratio: 1/1.2;
+    max-width: 630px;
+}
+
+/* Audio Controls */
 .babyshark-main .audio-controls {
-    text-align: center;
-    margin: 2rem 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    z-index: 2;
 }
 
 .babyshark-main .control-button {
-    padding: 15px 40px;
+    padding: 9.6px 24px;
     font-size: 1.2rem;
-    background: linear-gradient(135deg, #ffd700, #ffa500);
+    background: linear-gradient(135deg, #00a8cc, #0089a7);
     color: white;
     border: none;
     border-radius: 30px;
@@ -36,17 +50,17 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9.6px;
 }
 
 .babyshark-main .control-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    background: linear-gradient(135deg, #0089a7, #006d84);
 }
 
 .babyshark-main .control-button i {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .babyshark-main .control-button.end-button {
@@ -57,20 +71,18 @@
     background: linear-gradient(135deg, #ff4757, #ff3648);
 }
 
-.babyshark-main .lyrics-container {
-    margin-top: 2rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Lyrics Text */
 .babyshark-main .lyrics {
-    font-size: 2rem;
-    line-height: 1.8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    font-size: 1.8rem;
+    line-height: 1.6;
     text-align: center;
     font-family: 'Chewy', cursive;
-    color: #051670;
+    color: #00a8cc;
 }
 
 .babyshark-main .lyrics span {
@@ -80,9 +92,11 @@
     transition: all 0.3s ease;
 }
 
+/* Highlight Effect */
 .babyshark-main .lyrics span.highlight {
     background: linear-gradient(135deg, #ffd700, #ffa500);
     color: white;
-    transform: scale(1.1);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 0 5px;
+    border-radius: 5px;
+    display: inline-block;
 }

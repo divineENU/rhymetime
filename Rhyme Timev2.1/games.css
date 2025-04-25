@@ -4,6 +4,7 @@
     margin: 40px auto;
     min-height: 300px;
     padding: 2rem;
+    background: url('bucketleak.png') no-repeat center 60%;
     background-size: cover;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -265,4 +266,47 @@
   margin-top: 1rem;
   font-size: 1.3rem;
   color: #4a3000;
+}
+
+.start-message {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #4a3000;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Pail Collector Game */
+#pailcollector.game-area {
+    background: url('bucketleak.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Star Matching Game */
+#starmatch.game-area {
+    background: url('twinklle.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Shark Builder Game */
+#sharkbuilder.game-area {
+    background: url('babyshark.png') no-repeat center center;
+    background-size: cover;
 }

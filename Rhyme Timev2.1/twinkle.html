@@ -60,45 +60,40 @@
         <!-- Main Content -->
         <main>
             <div class="twinkle-main">
-                <div class="content-wrapper">
+                <div class="lyrics-container">
+                    <!-- Audio controls inside the frame -->
                     <div class="audio-controls">
-                        <button id="playButton" class="control-button">
-                            <i class="fas fa-play"></i>
-                            Play
-                        </button>
-                        <button id="pauseButton" class="control-button">
-                            <i class="fas fa-pause"></i>
-                            Pause
+                        <button id="toggleButton" class="control-button">
+                            <i id="playIcon" class="fas fa-play"></i>
+                            <span id="buttonText">Play</span>
                         </button>
                         <audio id="audio" src="twinkletwinkle.mp3"></audio>
                     </div>
-                    <div class="lyrics-container">
-                        <div class="lyrics" id="lyrics">
-                            <!-- Lyrics will appear here -->
-                            </div>
-                        </div>
-                        
-                        <!-- Star Matching Game -->
-                        <br></br>
-                        <h2 class="game-title">Star Matching</h2>
-                        <p class="instructions">Can you match the stars to the correct colour?</p>
-                        <div class="game-area" id="starmatch">
-                            <div class="star-targets">
-                          <div class="star-target" data-color="red">☆</div>
-                          <div class="star-target" data-color="blue">☆</div>
-                          <div class="star-target" data-color="green">☆</div>
-                        </div>
-                      
-                        <div class="star-tiles">
-                          <div class="star-tile red" draggable="true" data-color="red">★</div>
-                          <div class="star-tile blue" draggable="true" data-color="blue">★</div>
-                          <div class="star-tile green" draggable="true" data-color="green">★</div>
-                        </div>
-                      
-                        <div id="result"></div>
-                        <button id="resetBtn">Reset Game</button>
-                      </div>
+                    <div class="lyrics" id="lyrics">
+                        <!-- Lyrics will appear here -->
+                    </div>
                 </div>
+                
+                <!-- Star Matching Game -->
+                <br></br>
+                <h2 class="game-title">Star Matching</h2>
+                <p class="instructions">Can you match the stars to the correct colour?</p>
+                <div class="game-area" id="starmatch">
+                    <div class="star-targets">
+                      <div class="star-target" data-color="red">☆</div>
+                      <div class="star-target" data-color="blue">☆</div>
+                      <div class="star-target" data-color="green">☆</div>
+                    </div>
+                  
+                    <div class="star-tiles">
+                      <div class="star-tile red" draggable="true" data-color="red">★</div>
+                      <div class="star-tile blue" draggable="true" data-color="blue">★</div>
+                      <div class="star-tile green" draggable="true" data-color="green">★</div>
+                    </div>
+                  
+                    <div id="result"></div>
+                    <button id="resetBtn">Reset Game</button>
+                  </div>
             </div>
         </main>
 

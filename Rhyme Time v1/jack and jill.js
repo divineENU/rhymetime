@@ -58,8 +58,9 @@ const lyricsData = [
 
 // Select elements
 const audio = document.getElementById("audio");
-const playButton = document.getElementById("playButton");
-const pauseButton = document.getElementById("pauseButton");
+const toggleButton = document.getElementById("toggleButton");
+const playIcon = document.getElementById("playIcon");
+const buttonText = document.getElementById("buttonText");
 const lyricsContainer = document.getElementById("lyrics");
 
 // Initialize state
@@ -72,109 +73,126 @@ lyricsContainer.style.maxWidth = "800px";
 lyricsContainer.style.margin = "0 auto";
 lyricsContainer.style.lineHeight = "1.8";
 
-// Style the play button
-playButton.style.padding = "15px 30px";
-playButton.style.fontSize = "20px";
-playButton.style.borderRadius = "25px";
-playButton.style.border = "none";
-playButton.style.background = "linear-gradient(45deg, #ff6b6b, #ff8e8e)";
-playButton.style.color = "white";
-playButton.style.cursor = "pointer";
-playButton.style.transition = "all 0.3s ease";
-playButton.style.marginBottom = "30px";
+// Style the toggle button
+toggleButton.style.padding = "15px 30px";
+toggleButton.style.fontSize = "20px";
+toggleButton.style.borderRadius = "25px";
+toggleButton.style.border = "none";
+toggleButton.style.background = "linear-gradient(135deg, #8B4513, #A0522D)";
+toggleButton.style.color = "white";
+toggleButton.style.cursor = "pointer";
+toggleButton.style.transition = "all 0.3s ease";
+toggleButton.style.marginBottom = "30px";
 
-// Style the pause button
-pauseButton.style.padding = "15px 30px";
-pauseButton.style.fontSize = "20px";
-pauseButton.style.borderRadius = "25px";
-pauseButton.style.border = "none";
-pauseButton.style.background = "linear-gradient(45deg, #ff6b6b, #ff8e8e)";
-pauseButton.style.color = "white";
-pauseButton.style.cursor = "pointer";
-pauseButton.style.transition = "all 0.3s ease";
-pauseButton.style.marginBottom = "30px";
-
-// Add hover effect to play button
-playButton.addEventListener("mouseover", () => {
-    playButton.style.transform = "scale(1.05)";
-    playButton.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+// Add hover effect to toggle button
+toggleButton.addEventListener("mouseover", () => {
+    toggleButton.style.transform = "scale(1.05)";
+    toggleButton.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+    toggleButton.style.background = "linear-gradient(135deg, #A0522D, #8B4513)";
 });
 
-playButton.addEventListener("mouseout", () => {
-    playButton.style.transform = "scale(1)";
-    playButton.style.boxShadow = "none";
+toggleButton.addEventListener("mouseout", () => {
+    toggleButton.style.transform = "scale(1)";
+    toggleButton.style.boxShadow = "none";
+    toggleButton.style.background = "linear-gradient(135deg, #8B4513, #A0522D)";
+});
+
+// Toggle button functionality
+toggleButton.addEventListener("click", () => {
+    if (!isPlaying) {
+        audio.play();
+        playIcon.classList.remove("fa-play");
+        playIcon.classList.add("fa-pause");
+        buttonText.textContent = "Pause";
+    } else {
+        audio.pause();
+        playIcon.classList.remove("fa-pause");
+        playIcon.classList.add("fa-play");
+        buttonText.textContent = "Play";
+    }
+    isPlaying = !isPlaying;
+});
+
+// Handle audio ending naturally
+audio.addEventListener("ended", () => {
+    isPlaying = false;
+    playIcon.classList.remove("fa-pause");
+    playIcon.classList.add("fa-play");
+    buttonText.textContent = "Play";
+});
+
+// Group lyrics into verses
+const lyricsVerses = [];
+let currentVerse = [];
+lyricsData.forEach((word, index) => {
+    currentVerse.push(word);
+    if (["after", "paper"].includes(word.text)) {
+        lyricsVerses.push(currentVerse);
+        currentVerse = [];
+    }
 });
 
 // Populate lyrics in the DOM
-lyricsData.forEach((line, index) => {
-    const span = document.createElement("span");
-    span.id = `lyric-${index}`;
-    span.textContent = line.text + " ";  // Add space after each word
-    lyricsContainer.appendChild(span);
-
-    // Add line breaks to create proper verse structure
-    if (["water", "after", "caper", "paper"].includes(line.text)) {
-        const br = document.createElement("br");
-        lyricsContainer.appendChild(br);
-        
-        // Add extra spacing after each verse
-        if (["after", "paper"].includes(line.text)) {
-            const extraBr = document.createElement("br");
-            lyricsContainer.appendChild(extraBr);
-        }
-    }
+lyricsVerses.forEach((verse, verseIndex) => {
+    const verseDiv = document.createElement("div");
+    verseDiv.id = `verse-${verseIndex}`;
+    // Show first verse initially, hide others
+    verseDiv.style.display = verseIndex === 0 ? "block" : "none";
+    verseDiv.style.marginBottom = "20px"; // Add spacing between verses
+    
+    verse.forEach((word, wordIndex) => {
+        const span = document.createElement("span");
+        span.id = `lyric-${verseIndex}-${wordIndex}`;
+        span.textContent = word.text + " ";
+        verseDiv.appendChild(span);
+    });
+    
+    lyricsContainer.appendChild(verseDiv);
 });
-
-// Play button functionality
-playButton.addEventListener("click", () => {
-    audio.play();
-    isPlaying = true;
-    updateButtonStates();
-});
-
-// Pause button functionality
-pauseButton.addEventListener("click", () => {
-    audio.pause();
-    isPlaying = false;
-    updateButtonStates();
-});
-
-// Update button states based on playing status
-function updateButtonStates() {
-    if (isPlaying) {
-        playButton.style.opacity = "0.5";
-        pauseButton.style.opacity = "1";
-    } else {
-        playButton.style.opacity = "1";
-        pauseButton.style.opacity = "0.5";
-    }
-}
-
-// Initial button states
-updateButtonStates();
 
 // Synchronize lyrics with audio
 audio.ontimeupdate = () => {
     const currentTime = audio.currentTime;
+    let currentVerseIndex = null;
 
-    // Highlight the current lyric
-    lyricsData.forEach((line, index) => {
-        const lyricElement = document.getElementById(`lyric-${index}`);
-        if (currentTime >= line.start && currentTime <= line.end) {
-            lyricElement.classList.add("highlight");
+    // Find the current verse being sung
+    lyricsVerses.forEach((verse, verseIndex) => {
+        const verseDiv = document.getElementById(`verse-${verseIndex}`);
+        const firstWord = verse[0];
+        const lastWord = verse[verse.length - 1];
+        
+        if (currentTime >= firstWord.start && currentTime <= lastWord.end) {
+            currentVerseIndex = verseIndex;
+            verseDiv.style.display = "block"; // Show current verse
+            
+            // Highlight the current word within the verse
+            verse.forEach((word, wordIndex) => {
+                const wordSpan = document.getElementById(`lyric-${verseIndex}-${wordIndex}`);
+                if (currentTime >= word.start && currentTime <= word.end) {
+                    wordSpan.classList.add("highlight");
+                } else {
+                    wordSpan.classList.remove("highlight");
+                }
+            });
         } else {
-            lyricElement.classList.remove("highlight");
+            verseDiv.style.display = "none"; // Hide other verses
         }
     });
 };
 
-// Reset highlighting when audio ends
+// Reset highlighting and display when audio ends
 audio.onended = () => {
     isPlaying = false;
-    updateButtonStates();
-    lyricsData.forEach((_, index) => {
-        const lyricElement = document.getElementById(`lyric-${index}`);
-        lyricElement.classList.remove("highlight");
+    playIcon.classList.remove("fa-pause");
+    playIcon.classList.add("fa-play");
+    buttonText.textContent = "Play";
+    lyricsVerses.forEach((verse, verseIndex) => {
+        const verseDiv = document.getElementById(`verse-${verseIndex}`);
+        verseDiv.style.display = "none"; // Hide all verses when song ends
+        verse.forEach((_, wordIndex) => {
+            const wordSpan = document.getElementById(`lyric-${verseIndex}-${wordIndex}`);
+            wordSpan.classList.remove("highlight");
+        });
     });
 };
 

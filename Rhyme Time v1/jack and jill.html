@@ -55,22 +55,19 @@
         <!-- Main Content -->
         <main id="jackandjill">
             <div class="jack-and-jill-main">
-                <div class="content-wrapper">
-                    <div class="audio-controls">
-                        <button id="playButton" class="control-button">
-                            <i class="fas fa-play"></i>
-                            Play
-                        </button>
-                        <button id="pauseButton" class="control-button">
-                            <i class="fas fa-pause"></i>
-                            Pause
-                        </button>
-                        <audio id="audio" src="jackandjill.mp3"></audio>
-                    </div>
-                    <div class="lyrics-container">
-                        <div class="lyrics" id="lyrics">
-                            <!-- Lyrics will appear here -->
-                        </div>
+                <!-- Audio controls outside the frame -->
+                <div class="audio-controls">
+                    <button id="toggleButton" class="control-button">
+                        <i id="playIcon" class="fas fa-play"></i>
+                        <span id="buttonText">Play</span>
+                    </button>
+                    <audio id="audio" src="jackandjill.mp3"></audio>
+                </div>
+                
+                <!-- Frame with lyrics -->
+                <div class="lyrics-container">
+                    <div class="lyrics" id="lyrics">
+                        <!-- Lyrics will appear here -->
                     </div>
                 </div>
             </div>

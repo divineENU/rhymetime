@@ -22,10 +22,12 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 120vh; /* Increased height to prevent white space */
     background: url('treebackground.png') no-repeat center top;
     background-size: cover;
     z-index: -1;
+    top: 0; /* Start from the very top */
+    margin-top: 0;
 }
 
 .Content {
@@ -374,9 +376,6 @@ main {
     position: relative;
     min-height: calc(100vh + 81px);
     z-index: 1;
-    background: url('treebackground.png') no-repeat center top;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
 }
 
 main h2 {

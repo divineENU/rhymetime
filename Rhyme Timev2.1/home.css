@@ -8,6 +8,15 @@
     gap: 10px;
 }
 
+/* Main Heading */
+main h2 {
+    color: #F5F5DC; /* Beige - for main headings */
+    font-family: 'Chewy', cursive;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
 /* Section Left: Image on Left, Text on Right */
 .section-left {
     flex-direction: row;
@@ -34,9 +43,28 @@
 .section h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #FFF8DC; /* Cornsilk - for section headings */
+    font-family: 'Chewy', cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .section p {
     font-size: 18px;
     text-align: left;
+    color: #FFFAF0; /* Floral White - for paragraph text */
+    line-height: 1.6;
+}
+
+/* Rhyme Heading */
+.rhyme-heading {
+    color: #FFF8DC; /* Cornsilk - for rhyme titles */
+    font-family: 'Chewy', cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome Text */
+#usernameWelcome, #usernameHeading {
+    color: #F5F5DC; /* Beige - for personalized text */
+    font-family: 'Chewy', cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 } 

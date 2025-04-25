@@ -58,68 +58,66 @@
         </div>
 
         <!-- Main Content -->
-<main>
-    <div class="jack-and-jill-main">
-        <div class="content-wrapper">
-            <div class="audio-controls">
-                <button id="playButton" class="control-button">
-                    <i class="fas fa-play"></i>
-                    Play
-                </button>
-                <button id="pauseButton" class="control-button">
-                    <i class="fas fa-pause"></i>
-                    Pause
-                </button>
-                <audio id="audio" src="jackandjill.mp3"></audio>
-            </div>
+        <main>
+            <div class="jack-and-jill-main">
+                <div class="content-wrapper">
+                    <div class="lyrics-container">
+                        <!-- Audio controls inside the frame -->
+                        <div class="audio-controls">
+                            <button id="toggleButton" class="control-button">
+                                <i id="playIcon" class="fas fa-play"></i>
+                                <span id="buttonText">Play</span>
+                            </button>
+                            <audio id="audio" src="jackandjill.mp3"></audio>
+                        </div>
+                        <div class="lyrics" id="lyrics">
+                            <!-- Lyrics will appear here -->
+                        </div>
+                    </div>
 
-            <div class="lyrics-container">
-                <div class="lyrics" id="lyrics">
-                    <!-- Lyrics will appear here -->
+                    <!-- Pail Collector Game -->
+                    <br></br>
+                    <h2 class="game-title">🪣 Pail Collector</h2>
+                    <p class="instructions">Move the bucket and catch words that rhyme with <strong>"pail"</strong>!</p>
+                    <div class="game-area" id="pailcollector">
+                        <div id="bucket" class="bucket">
+                            <div id="startMessage" class="start-message">Click to Start</div>
+                        </div>
+                        <div id="falling-area"></div>
+                        <div id="scoreboard">Score: <span id="score">0</span></div>
+                        <div id="endMessage" class="hidden">
+                            Game Over! 🏁 Final Score: <span id="finalScore">0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </main>
 
-            <!-- Pail Collector Game -->
-            <br></br>
-            <h2 class="game-title">🪣 Pail Collector</h2>
-            <p class="instructions">Move the bucket and catch words that rhyme with <strong>"pail"</strong>!</p>
-            <div class="game-area" id="pailcollector">
-                <div id="bucket" class="bucket"></div>
-                <div id="falling-area"></div>
-                <div id="scoreboard">Score: <span id="score">0</span></div>
-                <div id="endMessage" class="hidden">
-                    Game Over! 🏁 Final Score: <span id="finalScore">0</span>
-                </div>
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-links">
+                <a href="home.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
             </div>
-        </div>
+            <p>© 2025 Rhyme Time. All rights reserved.</p>
+            <p>10 Colinton Rd, Edinburgh, EH10 5DT</p>
+        </footer>
+
+        <script src="jack and jill.js"></script>
+        <script src="home.js"></script>
+        <script>
+            // Get the username from localStorage
+            const userName = localStorage.getItem("userName");
+          
+            // Insert it into the span, or fallback to "Guest"
+            const placeholder = document.getElementById("usernamePlaceholder");
+            if (userName && placeholder) {
+              placeholder.textContent = userName;
+            } else {
+              placeholder.textContent = "Guest";
+            }
+        </script>
     </div>
-</main>
-
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-links">
-            <a href="home.html">Home</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
-        <p>© 2025 Rhyme Time. All rights reserved.</p>
-        <p>10 Colinton Rd, Edinburgh, EH10 5DT</p>
-    </footer>
-
-    <script src="jack and jill.js"></script>
-    <script src="home.js"></script>
-    <script>
-        // Get the username from localStorage
-        const userName = localStorage.getItem("userName");
-      
-        // Insert it into the span, or fallback to "Guest"
-        const placeholder = document.getElementById("usernamePlaceholder");
-        if (userName && placeholder) {
-          placeholder.textContent = userName;
-        } else {
-          placeholder.textContent = "Guest";
-        }
-    </script>
 </body>
 </html>
