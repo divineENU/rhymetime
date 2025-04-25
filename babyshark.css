@@ -1,0 +1,102 @@
+/* Baby Shark Page Styles */
+.babyshark-main {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.babyshark-main .welcome-text {
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Lyrics Container with Frame */
+.babyshark-main .lyrics-container {
+    position: relative;
+    margin: 0rem auto;
+    padding: 8.4% 6.3%;
+    background: url('rhymeframe.png') no-repeat center center;
+    background-size: contain;
+    aspect-ratio: 1/1.2;
+    max-width: 630px;
+}
+
+/* Audio Controls */
+.babyshark-main .audio-controls {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+}
+
+.babyshark-main .control-button {
+    padding: 9.6px 24px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #00a8cc, #0089a7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 9.6px;
+}
+
+.babyshark-main .control-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #0089a7, #006d84);
+}
+
+.babyshark-main .control-button i {
+    font-size: 1em;
+}
+
+.babyshark-main .control-button.end-button {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+.babyshark-main .control-button.end-button:hover {
+    background: linear-gradient(135deg, #ff4757, #ff3648);
+}
+
+/* Lyrics Text */
+.babyshark-main .lyrics {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    font-family: 'Chewy', cursive;
+    color: #00a8cc;
+}
+
+.babyshark-main .lyrics span {
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Highlight Effect */
+.babyshark-main .lyrics span.highlight {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: white;
+    padding: 0 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
