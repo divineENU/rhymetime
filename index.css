@@ -47,12 +47,12 @@ body.welcome-page {
 
 /* Logo Styles */
 .logo {
-    border-radius: 15px; /* Adjust this value to control the roundness */
+    border-radius: 15px; /* Will make the logo rounder, I might make it rounder like the homepage logo .*/
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    width: 400px; /* Increased width */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 90%; /* Ensure it's responsive */
+    width: 400px; 
+    height: auto; 
+    max-width: 90%; 
 }
 
 .logo:hover {
@@ -136,15 +136,4 @@ body.welcome-page {
 
 .modal-button.cancel:hover {
     background-color: #da190b;
-}
-
-/* Add a subtle shake animation for invalid input */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-.shake {
-    animation: shake 0.3s ease-in-out;
 } 
