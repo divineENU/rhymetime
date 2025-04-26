@@ -60,43 +60,50 @@
         <!-- Main Content -->
         <main>
             <div class="babyshark-main">
+              <div class="content-wrapper">
+                <!-- Audio Controls -->
+                <div class="audio-controls">
+                  <button id="toggleButton" class="control-button">
+                    <i id="playIcon" class="fas fa-play"></i>
+                    <span id="buttonText">Play</span>
+                  </button>
+                  <button id="endButton" class="control-button end-button">
+                    <i class="fas fa-stop"></i>
+                    Stop
+                  </button>
+                  <audio id="audio" src="babyshark.mp3"></audio>
+                </div>
+          
+                <!-- Lyrics -->
                 <div class="lyrics-container">
-                    <!-- Audio controls inside the frame -->
-                    <div class="audio-controls">
-                        <button id="toggleButton" class="control-button">
-                            <i id="playIcon" class="fas fa-play"></i>
-                            <span id="buttonText">Play</span>
-                        </button>
-                        <audio id="audio" src="babyshark.mp3"></audio>
-                    </div>
-                    <div class="lyrics" id="lyrics">
-                        <!-- Lyrics will appear here -->
-                    </div>
+                  <div class="lyrics" id="lyrics">
+                    <!-- Lyrics will appear here -->
+                  </div>
                 </div>
-                <div class="content-wrapper">
-                    <!-- Shark Builder Game -->
-                    <h2 class="game-title">Shark Builder</h2>
-                    <p class="instructions">Can you build the word: SHARK?</p>
-                    <div class="game-area" id="sharkbuilder">
-                      <div id="drop-zone">
-                        <div class="drop" data-letter="S"></div>
-                        <div class="drop" data-letter="H"></div>
-                        <div class="drop" data-letter="A"></div>
-                        <div class="drop" data-letter="R"></div>
-                        <div class="drop" data-letter="K"></div>
-                      </div>
-                      <div id="tiles">
-                        <div class="tile" draggable="true">A</div>
-                        <div class="tile" draggable="true">H</div>
-                        <div class="tile" draggable="true">K</div>
-                        <div class="tile" draggable="true">R</div>
-                        <div class="tile" draggable="true">S</div>
-                      </div>
-                      <div id="dragdrop-result"></div>
-                    </div>
+          
+                <!-- Shark Builder Game -->
+                <h2 class="game-title">Shark Builder</h2>
+                <p class="instructions">Can you build the word: SHARK?</p>
+                <div class="game-area" id="sharkbuilder">
+                  <div id="drop-zone">
+                    <div class="drop" data-letter="S"></div>
+                    <div class="drop" data-letter="H"></div>
+                    <div class="drop" data-letter="A"></div>
+                    <div class="drop" data-letter="R"></div>
+                    <div class="drop" data-letter="K"></div>
+                  </div>
+                  <div id="tiles">
+                    <div class="tile" draggable="true">A</div>
+                    <div class="tile" draggable="true">H</div>
+                    <div class="tile" draggable="true">K</div>
+                    <div class="tile" draggable="true">R</div>
+                    <div class="tile" draggable="true">S</div>
+                  </div>
+                  <div id="dragdrop-result"></div>
                 </div>
+              </div>
             </div>
-        </main>
+          </main>
 
         <style>
             /* Center the shark drag-and-drop game container */
